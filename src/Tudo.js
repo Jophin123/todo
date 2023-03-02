@@ -9,16 +9,25 @@ export default function Tudo(){
             e.target.value
         )
         console.log(item)
+        console.log(arr)
     }
    const handleSubmit=(e)=>{
+  
      setarray(
+    [...arr,item]
         
-        arr.concat(item)
+       
 
     );
-   }
-   const removeItem =(id)=>{
    
+   }
+   const removeItem =(id)=> {
+   console.log(id)
+   console.log(arr)
+
+    setarray((arr)=>arr.filter((a,b)=>{ return  b!== id }))
+    
+  
    }
     return(
         <div>
@@ -26,7 +35,7 @@ export default function Tudo(){
             <button type='submit' onClick={handleSubmit}>add</button>
             <ul>
                 {arr.map((ac,bs)=>{
-                    return <li key={ac}>{ac}<button type="button" onClick={()=>removeItem(ac.id)}>X</button></li> 
+                    return <li key={ac}>{ac}<button type="button" onClick={()=>removeItem(bs)}>X</button></li> 
 
                 })}
               
